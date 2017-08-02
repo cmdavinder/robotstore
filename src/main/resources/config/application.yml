@@ -1,0 +1,46 @@
+management:
+    security:
+        roles: ADMIN
+    context-path: /management
+
+spring:
+    application:
+        name: robotstore
+    jackson:
+        serialization.write_dates_as_timestamps: false
+    jpa:
+        open-in-view: false
+        hibernate:
+            ddl-auto: update
+            naming:
+                physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+                implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+    mvc:
+        favicon:
+            enabled: false
+security:
+    basic:
+        enabled: false
+    oauth2:
+        resource:
+            filter-order: 3
+
+server:
+    session:
+        cookie:
+            http-only: true
+
+jhipster:
+    swagger:
+        default-include-pattern: /api/.*
+        title: robotstore API
+        description: robotstore API documentation
+        version: 0.0.1
+        terms-of-service-url:
+        contact-name:
+        contact-url:
+        contact-email:
+        license:
+        license-url:
+
+application:

@@ -1,0 +1,40 @@
+
+<div *ngIf="robot">
+    <h2><span>Robot</span> {{robot.id}}</h2>
+    <hr>
+    <app-alert-error></app-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Name</span></dt>
+        <dd>
+            <span>{{robot.name}}</span>
+        </dd>
+        <dt><span>Description</span></dt>
+        <dd>
+            <span>{{robot.description}}</span>
+        </dd>
+        <dt><span>Price</span></dt>
+        <dd>
+            <span>{{robot.price}}</span>
+        </dd>
+        <dt><span>Available</span></dt>
+        <dd>
+           <span class="badge badge-success" *ngIf="!robot.soldOut"
+           >In Stock</span>
+            <span class="badge badge-danger" *ngIf="robot.soldOut"
+            >Sold Out</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button *appHasAnyAuthority="'ROLE_ADMIN'" type="button"
+            [routerLink]="['/', { outlets: { popup: 'robot/'+ robot.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>

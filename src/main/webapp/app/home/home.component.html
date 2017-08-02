@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="col-md-3">
+        <span class="robotstore img-fluid img-rounded"></span>
+    </div>
+    <div class="col-md-9">
+        <h1 class="display-4">Welcome to Robot Shopping Store</h1>
+        <div [ngSwitch]="isAuthenticated()">
+            <div class="alert alert-success" *ngSwitchCase="true">
+                <span *ngIf="account"> Hello "{{account.login}}". Please <a routerLink="robot" routerLinkActive="active">click here</a> to browse robots catalog.</span>
+
+            </div>
+
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <span>Please</span>
+                <a class="alert-link" (click)="login()">Sign In</a>
+                <span>to view and manage robots catalog.</span>
+            </div>
+        </div>
+    </div>
+</div>
